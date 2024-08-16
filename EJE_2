@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css">
-  <title>Formulario</title>
+  <title>Formulario Registro</title>
   <style>
     * {
       margin: 0;
@@ -44,7 +44,7 @@
       border: 1px solid #ffffff;
       font-family: 'calibri';
       font-size: 16px;
-      color: white;
+      color: black;
     }
 
     .form-register .error-message {
@@ -70,14 +70,18 @@
   <section class="form-register">
     <h4>Formulario Registro</h4>
     <form id="registrationForm" action="/submit" method="post">
-      <input class="controls" type="text" name="nombres" id="nombres" placeholder="Nombre" required>
-      <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Apellido" required>
+      <!-- Validación con atributos HTML5 -->
+      <input class="controls" type="text" name="nombres" id="nombres" placeholder="Nombre" required minlength="2">
+      <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Apellido" required minlength="2">
       
       <!-- Campo de correo electrónico con validación -->
       <input class="controls" type="email" name="correo" id="correo" placeholder="Correo electrónico" required>
       <span class="error-message" id="emailError">Por favor ingrese un correo válido.</span>
 
+      <!-- Campo de contraseña con validación de longitud mínima -->
       <input class="controls" type="password" name="password" id="password" placeholder="Contraseña" required minlength="8">
+      <span class="error-message" id="passwordError">La contraseña debe tener al menos 8 caracteres.</span>
+
       <input class="botons" type="submit" value="Registrar">
     </form>
   </section>
@@ -87,13 +91,31 @@
     const form = document.getElementById('registrationForm');
     const emailField = document.getElementById('correo');
     const emailError = document.getElementById('emailError');
+    const passwordField = document.getElementById('password');
+    const passwordError = document.getElementById('passwordError');
 
     form.addEventListener('submit', function(event) {
+      let valid = true;
+
+      // Validación del correo
       if (!emailField.validity.valid) {
-        event.preventDefault();
         emailError.style.display = 'block';
+        valid = false;
       } else {
         emailError.style.display = 'none';
+      }
+
+      // Validación de la contraseña
+      if (passwordField.value.length < 8) {
+        passwordError.style.display = 'block';
+        valid = false;
+      } else {
+        passwordError.style.display = 'none';
+      }
+
+      // Evitar el envío si hay errores
+      if (!valid) {
+        event.preventDefault();
       }
     });
   </script>
