@@ -40,5 +40,40 @@
     <footer>
         <p>&copy;  Todos los derechos reservados.</p>
     </footer>
+
+    <script>
+        // Validación adicional con JavaScript
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', function(event) {
+            // Validar campo de nombre
+            const name = document.getElementById('name');
+            if (name.value.trim().length < 2) {
+                alert('El nombre debe tener al menos 2 caracteres.');
+                name.focus();
+                event.preventDefault();
+                return;
+            }
+
+            // Validar formato de correo electrónico
+            const email = document.getElementById('email');
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email.value)) {
+                alert('Por favor ingrese una dirección de correo electrónico válida.');
+                email.focus();
+                event.preventDefault();
+                return;
+            }
+
+            // Validar longitud del mensaje
+            const message = document.getElementById('message');
+            if (message.value.trim().length < 10) {
+                alert('El mensaje debe tener al menos 10 caracteres.');
+                message.focus();
+                event.preventDefault();
+                return;
+            }
+        });
+    </script>
 </body>
 </html>
