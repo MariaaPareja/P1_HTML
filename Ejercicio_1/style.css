@@ -1,62 +1,102 @@
-/* GENERAL */
-#Page {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: #000 var(--c-bg);
-    background-image: url(gif.gif);
-    background-position: center;
-    background-size:cover;
-    color: #fff;
-    white-space: nowrap;
-    border-color:#fff;
-    border-width: medium;
-    border-style: groove;
-    transition-property: background-color;
-    transition-duration: .9s;
-    transition-timing-function: cubic-bezier(0.1, 0.4, 0.2, 1);
-}
-
-#header {
-    margin: 0 auto;
-    left: 0;
-    top: 0;
-    border-color:#fff;
-    border-width: thin;
-    border-style: dotted;
-    width: 50%;
-    height: 25%;
-    background-color: #000;
-}
-
-* {
+/* Estilo general para la temática oscura */
+body {
+    background-color: #121212; /* Fondo oscuro */
+    color: #e0e0e0; /* Texto claro */
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-/* GENERAL */
+/* Contenedor principal */
 #Page {
-    background-color: #000 var(--c-bg);
-    font-family: "New Amsterdam", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: var(--fs-text);
-    font-feature-settings: "palt";
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overscroll-behavior: none;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-html{
-    scroll-behavior: smooth;
+/* Cabecera del sitio */
+.siteHeader {
+    background-color: #1e1e1e; /* Fondo de cabecera oscuro */
+    color: #f5f5f5; /* Texto claro en la cabecera */
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
+.siteHeader_title {
+    margin: 0;
+    font-size: 2em;
+}
 
-/* NAVEGACION */
+.siteHeader_label {
+    margin: 0;
+    font-size: 1.2em;
+}
 
-.siteHeader_nav ol li.is-selected {
-    pointer-events: none;
+.siteHeader_nav ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.siteHeader_nav li {
+    margin: 10px 0;
+}
+
+.siteHeader_nav a {
+    color: #e0e0e0; /* Color del texto del enlace */
+    text-decoration: none;
+}
+
+.siteHeader_nav .is-selected a {
+    color: #ff5722; /* Color del enlace seleccionado */
+}
+
+/* Estilo para el contenido */
+.content {
+    flex: 1;
+    background-color: #121212;
+    color: #e0e0e0;
+    padding: 20px;
+}
+
+.content_inner {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.page_content {
+    padding: 20px;
+}
+
+.page_content span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Estilo para listas */
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+strong {
+    color: #ff5722; /* Color para los elementos en negrita */
+}
+
+/* Estilo para el pie de página */
+footer {
+    background-color: #1e1e1e; /* Fondo oscuro para el pie de página */
+    color: #e0e0e0; /* Texto claro */
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
