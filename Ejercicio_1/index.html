@@ -1,43 +1,85 @@
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <title> Mi Portafolio </title>
-        <meta name="description" content="Estudiante de Ing. Sistemas">
-        <meta property="og:title" content="Mi Portafolio"/>
-        <link rel="stylesheet" href="style.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Jersey+10&family=New+Amsterdam&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <div id="Page" class="dark">
-            <div id="header">
-                <header class="cabecera" id="cabecera">
-                    <h1 class="cabecera_titulo" id="cabecera_titulo"> Maria Pareja </h1>
-                    <p class="cabecera_subtitulo">Ingeniería de Sistemas</p>
-                    <nav class="menu" x-data>
-                        <div>
-                            <ul class="nav_links">
-                                <li> 
-                                    <a href="sobre_mi"> Sobre mi </a>
-                                </li>
-                                <li> 
-                                    <a href="sobre_mi"> Habilidades </a>
-                                </li>
-                                <li> 
-                                    <a href="sobre_mi"> Experiencia </a>
-                                </li>
-                                <li> 
-                                    <a href="sobre_mi"> Contacto </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                    <section>
 
-                    </section>
-                </header>
-            </div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title> Mi Portafolio </title>
+    <meta name="description" content="Estudiante de Ing. Sistemas">
+    <meta property="og:title" content="Mi Portafolio" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="Page" class="is-dark">
+        <div id="Background">
+            <canvas data-engine="three.js r167" width="138" height="832"
+                style="width: 110.4px; height: 665.6px;"></canvas>
         </div>
-    </body>
+        <div class="mask" id="Mask">
+            <div class="mask_top"></div>
+            <div class="mask_bottom"></div>
+        </div>
+        <header class="siteHeader" id="siteHeader">
+            <h1 class="siteHeader_title"> Maria Pareja </h1>
+            <p class="siteHeader_label">student of Systems Engineering</p>
+            <nav class="siteHeader_nav" x-data>
+                <ol>
+                    <li :class="{ 'is-selected': $store.state.app.currentPath === '/about' }">
+                        <div class="_dot">●</div>
+                        <a class="_text" href="/about/">About me</a>
+                    </li>
+                    <li :class="{ 'is-selected': $store.state.app.currentPath === '/habilities' }">
+                        <div class="_dot">●</div>
+                        <a class="_text" href="/habilities/">Habilities</a>
+                    </li>
+                    <li :class="{ 'is-selected': $store.state.app.currentPath === '/experience' }">
+                        <div class="_dot">●</div>
+                        <a class="_text" href="/experience/">Experience</a>
+                    </li>
+                    <li :class="{ 'is-selected': $store.state.app.currentPath === '/contact' }"></li>
+                        <div class="_dot">●</div>
+                        <a class="_text" href="/contact/">Contact</a>
+                    </li>
+                </ol>
+            </nav>
+        </header>
+        <main class="content" id="Content" data-scroll="area">
+            <div class="content_inner" data-scroll="target" style="transform: translate3d(0px, 0px, 0px);">
+                <section class="page" data-page="about" style="display: block; opacity: 1;">
+                    <div class="page_content about">
+                        <article class="aboutme">
+                            <span> Born in Peru </span>
+                            <span> I am someone who </span>
+                            <span> wants to innovate </span>
+                            <span> and like teamwork. </span>
+                        </article>
+                    </div>
+                </section>
+                <section class="page" data-page="habilities">
+                    <div class="page_content habilities">
+                        <article class="habilities_list">
+                            <article class="habilities_list">
+                                <ul>
+                                    <li><strong>Programación:</strong> Conocimiento en lenguajes como Java, Python, C++.</li>
+                                    <li><strong>Administración de Bases de Datos:</strong> Manejo de sistemas como MySQL, PostgreSQL.</li>
+                                    <li><strong>Gestión de Proyectos:</strong> Uso de metodologías ágiles como Scrum o Kanban para coordinar y entregar proyectos.</li>
+                                    <li><strong>Redes y Comunicaciones:</strong> Configuración y administración de redes, protocolos TCP/IP, y manejo de firewalls.</li>
+                                    <li><strong>Cloud Computing:</strong> Experiencia con servicios en la nube como AWS y Azure.</li>
+                                    <li><strong>Análisis de Sistemas:</strong> Evaluación y diseño de sistemas de información para mejorar la eficiencia organizacional.</li>
+                                    <li><strong>Trabajo en Equipo:</strong> Capacidad para colaborar efectivamente con otros.</li>
+                                    <li><strong>Resolución de Problemas:</strong> Habilidad para diagnosticar y solucionar problemas técnicos complejos.</li>
+                                </ul>
+                            </article>
+                            
+                        </article>
+                    </div>
+                </section>
+                
+            </div>
+        </main>
+    </div>
+    <footer>
+        @ 2024 portofolio.com
+    </footer>
+</body>
 </html>
